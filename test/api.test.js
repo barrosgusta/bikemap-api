@@ -1,0 +1,15 @@
+import request from "supertest";
+import app from "../index.js";
+
+describe("GET /rotas/:bairro", () => {
+  it("retorna rotas para o bairro Centro", async () => {
+    const res = await request(app).get("/rotas/centro");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.bairro).toBe("Centro");
+  });
+
+  it("retorna erro para bairro inexistente", async () => {
+    const res = await request(app).get("/rotas/narnia");
+    expect(res.statusCode).toBe(404);
+  });
+});
