@@ -1,7 +1,11 @@
 import request from "supertest";
-import app from "../index.js";
+import { app, server } from "../index.js";
 
 describe("GET /rotas/:bairro", () => {
+  afterAll((done) => {
+    server.close(done); // 👈 Encerra o servidor após os testes
+  });
+
   it("retorna rotas para o bairro Centro", async () => {
     const res = await request(app).get("/rotas/centro");
     expect(res.statusCode).toBe(200);

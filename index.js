@@ -16,4 +16,4 @@ app.listen(PORT, () => {
   console.log(`🚴 BikeMap API rodando em http://localhost:${PORT}`);
 });
 
-export default app;
+export { app, server };
