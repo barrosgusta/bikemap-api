@@ -16,4 +16,10 @@ describe("GET /rotas/:bairro", () => {
     const res = await request(app).get("/rotas/narnia");
     expect(res.statusCode).toBe(404);
   });
+
+  it("retorna rotas para o bairro Jardim das Flores", async () => {
+    const res = await request(app).get("/rotas/jardim-das-flores");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.bairro).toBe("Jardim das Flores");
+  });
 });
