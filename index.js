@@ -8,7 +8,9 @@ app.use(express.json());
 
 app.get("/rotas/:bairro", (req, res) => {
   const bairro = req.params.bairro.toLowerCase();
-  const rota = rotas.find((r) => r.bairro.toLowerCase() === bairro);
+  const rota = rotas.find(
+    (r) => r.bairro.replaceAll(" ", "-").toLowerCase() === bairro
+  );
 
   if (rota) {
     res.json(rota);
