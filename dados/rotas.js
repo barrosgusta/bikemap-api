@@ -1,12 +1,12 @@
-export const rotas = [
+const rotas = [
   {
     bairro: "Centro",
-    ciclovias: ["Rua das Palmeiras", "Av. Principal", "Rua Verde"],
-    pontosAluguel: ["Estação 1", "Estação 5"]
+    pontos: ["Rua A", "Rua B", "Rua C"]
   },
   {
-    bairro: "Bela Aliança",
-    ciclovias: ["Rua do Sol", "Av. das Hortênsias"],
-    pontosAluguel: ["Estação 2"]
+    bairro: "Bela Vista",
+    pontos: ["Rua D", "Rua E"]
   }
 ];
+
+export default rotas;

@@ -3,7 +3,7 @@ import { app, server } from "../index.js";
 
 describe("GET /rotas/:bairro", () => {
   afterAll((done) => {
-    server.close(done); // 👈 Encerra o servidor após os testes
+    server.close(done); // ✅ Fecha o servidor ao final dos testes
   });
 
   it("retorna rotas para o bairro Centro", async () => {

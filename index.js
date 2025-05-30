@@ -1,19 +1,24 @@
 import express from "express";
-import { rotas } from "./dados/rotas.js";
+import rotas from "./dados/rotas.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+
 app.get("/rotas/:bairro", (req, res) => {
   const bairro = req.params.bairro.toLowerCase();
-  const resultado = rotas.find(r => r.bairro.toLowerCase() === bairro);
+  const rota = rotas.find((r) => r.bairro.toLowerCase() === bairro);
 
-  if (resultado) res.json(resultado);
-  else res.status(404).json({ erro: "Bairro não encontrado" });
+  if (rota) {
+    res.json(rota);
+  } else {
+    res.status(404).json({ erro: "Bairro não encontrado" });
+  }
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`🚴 BikeMap API rodando em http://localhost:${PORT}`);
 });
 
-export { app, server };
+export { app, server }; // 👈 Exportando os dois
